@@ -1,13 +1,9 @@
-export default function CreateForm( { newCookieStand } ) {
+export default function CreateForm( { createCookieStand } ) {
     function handleSubmit(event) {
         event.preventDefault();
-        newCookieStand(
-            event.target.location.value,
-            event.target.minCustomersHour.value,
-            event.target.maxCustomersHour.value,
-            event.target.avgCookies.value
-    );
-        event.target.reset
+        createCookieStand();
+        event.target.reset();
+        console.log(createCookieStand)
     }
 
     return(
