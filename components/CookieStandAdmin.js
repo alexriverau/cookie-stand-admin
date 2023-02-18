@@ -10,9 +10,9 @@ export default function CookieStandAdmin() {
 
     function createCookieStand() {
         const cookieStand = {
-            location: '',
+            location: 'Seattle',
             hourly_sales: [48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36],
-            id: cookieStands.length
+            id: cookieStands.length + 1
         }
         createStand([...cookieStands, cookieStand])
     }
@@ -34,18 +34,11 @@ export default function CookieStandAdmin() {
 
               </div>
             </div>
-
-            <div>
-              <p className='p-6 mt-6 text-2xl text-gray-600 relative flex items-center justify-center'>
-                No Cookie Stands Available
-              </p>
-              <p className='p-2 text-2xl text-gray-600 relative flex items-center justify-center'></p>
-            </div>
         </main>
 
-        {/*<ReportTable />*/}
+        <ReportTable cookieStandsList={ cookieStands } />
 
-        <Footer/>
+        <Footer locationsCount={ cookieStands.length }/>
     </div>
     )
 }

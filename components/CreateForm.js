@@ -3,7 +3,6 @@ export default function CreateForm( { createCookieStand } ) {
         event.preventDefault();
         createCookieStand();
         event.target.reset();
-        console.log(createCookieStand)
     }
 
     return(
