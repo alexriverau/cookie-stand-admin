@@ -1,3 +1,5 @@
+# Lab 39: Cookie Stand Admin Version 3
+
 # Lab 38: Cookie Stand Admin Version 2
 
 # Lab 37: Welcome to React, Next.js & TailwindCSS
@@ -8,6 +10,11 @@
 
 ---
 React app that allows users to create new cookie stands
+
+v1.0.2
+  * Implements user authentication
+  * Adds API functionality
+  * Updates styling
 
 v1.0.1
   * Refactors code base into components
