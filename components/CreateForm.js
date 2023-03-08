@@ -1,38 +1,51 @@
-export default function CreateForm( { createCookieStand } ) {
+import {useAuth} from "@/contexts/auth";
+import useResource from "@/hooks/useResource";
+
+export default function CreateForm() {
+    const {user} = useAuth();
+    const {createResource} = useResource();
+
     function handleSubmit(event) {
         event.preventDefault();
-        createCookieStand();
-        event.target.reset();
+        const report = {
+            location: event.target.location.value,
+            minimum_customers_per_hour: parseInt(event.target.minCustomersHour.value),
+            maximum_customers_per_hour: parseInt(event.target.maxCustomersHour.value),
+            average_cookies_per_sale: parseFloat(event.target.avgCookies.value),
+            owner: user.id,
+        }
+        createResource(report)
     }
 
-    return(
-        <form onSubmit={ handleSubmit } className="w-full px-10 pt-5 pb-3 mx-auto rounded-lg border-emerald-400">
-              <div className='flex items-end'>
-                <label className='block mx-auto pr-2'>Location</label>
-                <input name='location' className='w-full' />
-              </div>
-
-              <div className='flex mt-5'>
-                <div className='w-1/3 p-3 mx-1 my-2 rounded bg-emerald-200'>
-                  <label className='block mx-auto text-center'>Minimum Customers per Hour</label>
-                  <input name='minCustomersHour' type='text' className='w-full' />
+    return (
+        <form onSubmit={handleSubmit} className='w-3/4 p-6 mx-auto my-10 bg-emerald-200 border-2 border-emerald-400 rounded-xl'>
+            <div className='flex justify-around'>
+                <div className='flex flex-col'>
+                    <label className='text-center text-sm font-bold mx-80 p-2'>ADD LOCATION</label>
+                    <input name='location' placeholder='Cookie Stand Location' className='w-full h-10 px-2'/>
                 </div>
 
-                <div className='w-1/3 p-3 mx-1 my-2 rounded bg-emerald-200'>
-                  <label className='block mx-auto text-center'>Maximum Customers per Hour</label>
-                  <input name='maxCustomersHour' type='text' className='w-full' />
-                </div>
-
-                <div className='w-1/3 p-3 mx-1 my-2 rounded bg-emerald-200'>
-                  <label className='block mx-auto text-center'>Average Cookies per Sale</label>
-                  <input name='avgCookies' type='text' className='w-full' />
-                </div>
-
-                <button className='w-1/3 mx-1 my-2 rounded bg-emerald-500 hover:bg-emerald-600' type='submit'>
-                  Create
+                <button className='w-96 mt-6 h-14 text-sm bg-emerald-500 rounded hover:bg-emerald-400' type='submit'>
+                    CREATE STAND
                 </button>
-              </div>
-            </form>
-    )
+            </div>
 
+            <div className='flex flex-row items-center justify-around space-x-16 w-full h-10 mt-8 mb-4'>
+                <div className='flex flex-col'>
+                    <label className='text-center text-sm font-bold mx-8 p-2'>MINIMUM CUSTOMERS PER HOUR</label>
+                    <input name='minCustomersHour' type='text' className='w-full h-8'/>
+                </div>
+
+                <div className='flex flex-col'>
+                    <label className='text-center text-sm font-bold mx-8 p-2'>MAXIMUM CUSTOMERS PER HOUR</label>
+                    <input name='maxCustomersHour' type='text' className='w-full h-8'/>
+                </div>
+
+                <div className='flex flex-col'>
+                    <label className='text-center text-sm font-bold mx-8 p-2'>AVERAGE COOKIES PER SALE</label>
+                    <input name='avgCookies' type='text' className='w-full h-8'/>
+                </div>
+            </div>
+        </form>
+    )
 }

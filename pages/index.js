@@ -1,11 +1,17 @@
 import CookieStandAdmin from "@/components/CookieStandAdmin";
+import { useAuth } from "@/contexts/auth";
+import LoginForm from "@/components/LoginForm";
+
 
 export default function Home() {
-  return (
-    <div>
 
-      <CookieStandAdmin/>
+    const { user, login } = useAuth();
 
-    </div>
-  );
+    return (
+        <div>
+            {
+                user ? <CookieStandAdmin/> : <LoginForm onLogin={ login }/>
+            }
+        </div>
+    );
 }
