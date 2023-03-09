@@ -31,6 +31,21 @@ v1.0.0
   * Allows users to create new cookie stands
   * Implements Tailwind CSS for styling
 
+### Deployed URLs
+
+#### Front End
+
+[https://cookie-stand-admin-ashy-eta.vercel.app/](https://cookie-stand-admin-ashy-eta.vercel.app/)
+
+#### Back End - API
+
+[https://cookie-stand-api-ruddy.vercel.app/](https://cookie-stand-api-ruddy.vercel.app/)
+
+* User Name: admin
+* Password: admin
+
+--- 
+
 ### Setup
 
 Must have the latest npm version
@@ -49,10 +64,6 @@ npm install -g npm@latest
 
 ### How to initialize application
 
-#### Deployed URL
-
-[http://localhost:3000/](http://localhost:3000/)
-
 #### Front End
 
 ```commandline
@@ -68,5 +79,4 @@ docker-compose up
 ```
 
 [http://localhost:8000/api/v1/cookie-stands/](http://localhost:8000/api/v1/cookie-stands/)
-* Username: admin
-* Password: admin
+
